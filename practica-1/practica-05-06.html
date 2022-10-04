@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script type="text/javascript">
+            function myfunction(){
+                const formulario = document.forms[0];
+                const cadena = formulario.elements["Cadena"].value;
+                const subcadena = formulario.elements["SubCadena"].value;
+                const mensaje = formulario.elements["Mensaje"];
+                let contador= 0;
+                    for(let i=0;i<=cadena.indexOf(subcadena,i);i++){
+                    cadena.indexOf(subcadena,i);
+                    i=cadena.indexOf(subcadena,i);
+                    contador++;                    
+                }
+                mensaje.value = contador;
+            }
+        </script>
+    </head>
+
+
+    <body>
+        <form>
+            <input type="text" name="Cadena" placeholder="Escribe un texto" size="50">Cadena</input>
+            <br>
+            <input type="text" name="SubCadena" placeholder="Escribe un subtexto" size="50">SubCadena</input>
+            <br>
+            <input type="number" name="Mensaje" placeholder="Numero de coincidencias" size="50" disabled >Mensaje</input>
+            <br>
+            <input  type="button" value="Comprobar" onclick="myfunction()"></input>
+        </form>
+    </body>
+
+</html>
+

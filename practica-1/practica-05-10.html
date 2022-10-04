@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script>
+            function validateurl(){
+                const formulario = document.forms[0];
+                const pattern =(https?:\/\/)?www\.[a-zA-Z][a-zA-Z\d-]*[a-zA-Z\d]\.[a-z]{2,4};
+
+                const url = formulario.elements["url"].value;
+                let mensaje = formulario.elements["mensaje"];
+
+                console.log(1)
+                if (pattern.test(url)) {
+                    mensaje.value = "La url si es valida";
+                } else {
+                    mensaje.value = "La url no es valida";
+                }
+            }    
+
+        </script>
+    </head>
+    <body>
+
+        <form>
+            <input name="url" type="text"><label> URL</label></input>
+            <br>
+            <input name="mensaje" type="text" readonly><label> Mensaje</label></input>
+            <br>
+            <button type="button" onclick="validateurl()">Comprobar</button>
+        </form>
+    </body>
+    </html>

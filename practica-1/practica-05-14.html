@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script>
+
+            function validateCode(){
+                const pattern = /(^\d{3,6}(AN|ES|DL|US)[#@$&][a-zA-Z]{4,7}\d{2}[a-zA-Z]{3}[a-zA-Z\d%/?!]{5}$)/;
+                const formulario = document.forms[0];
+                const codigo = formulario.elements["codigo"].value;
+                let mensaje = formulario.elements["mensaje"];
+                
+                if (pattern.test(codigo)) {
+                    mensaje.value = "El codigo si es valido";
+                } else {
+                    mensaje.value = "El codigo no es valido";
+                }
+            }    
+
+        </script>
+    </head>
+    <body>
+        <!-- Formulario con diferentes inputs con sus respectivos nombres y tipos. -->
+        <form>
+            <input name="codigo" type="text"><label> Codigo</label></input>
+            <br>
+            <input name="mensaje" type="text" readonly><label> Mensaje</label></input>
+            <br>
+            <button type="button" onclick="validateCode()">Calcular</button>
+        </form>
+    </body>
+    </html>

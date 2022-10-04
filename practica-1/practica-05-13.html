@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script>
+
+            function validatePalindrome(){
+                const formulario = document.forms[0];
+                let palindromo = formulario.elements["palindromo"].value.toLowerCase();
+                let mensaje = formulario.elements["mensaje"];
+                let valido = true;     
+
+                for (let i = 0; i < palindromo.length; i++){
+                    palindromo = palindromo.replace(/[\s,`\.]/, "");
+                    console.log(palindromo);
+                }
+                
+                palindromo = palindromo.split("");
+
+                for (let i = 0; i < palindromo.length / 2; i++){
+                    console.log(palindromo);
+                    if ((palindromo[i] == palindromo[palindromo.length -1 - i])){
+                        continue;
+                    } else {
+                        valido = false;
+                    }
+                }
+
+                if (valido) {
+                    mensaje.value = "El codigo si es valido";
+                } else {
+                    mensaje.value = "El codigo no es valido";
+                }
+            }    
+
+        </script>
+    </head>
+    <body>
+        <!-- Formulario con diferentes inputs con sus respectivos nombres y tipos. -->
+        <form>
+            <input name="palindromo" type="text"><label> Palindromo</label></input>
+            <br>
+            <input name="mensaje" type="text" readonly><label> Mensaje</label></input>
+            <br>
+            <button type="button" onclick="validatePalindrome()">Calcular</button>
+        </form>
+    </body>
+    </html>

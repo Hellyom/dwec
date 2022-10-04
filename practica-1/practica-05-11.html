@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script>
+
+            function validateLocation(){
+                const pattern = /\b([a-zA-Z]{3}[\sa-zA-Z]{2,30}[a-zA-Z]{2})\b/;
+                const formulario = document.forms[0];
+                const localidad = formulario.elements["localidad"].value;
+                let mensaje = formulario.elements["mensaje"];
+                
+                if (pattern.test(localidad)) {
+                    mensaje.value = "La localidad si es valida";
+                } else {
+                    mensaje.value = "La localidad no es valida";
+                }
+            }    
+
+        </script>
+    </head>
+    <body>
+        <!-- Formulario con diferentes inputs con sus respectivos nombres y tipos. -->
+        <form>
+            <input name="localidad" type="text"><label> Localidad</label></input>
+            <br>
+            <input name="mensaje" type="text" readonly><label> Mensaje</label></input>
+            <br>
+            <button type="button" onclick="validateLocation()">Calcular</button>
+        </form>
+    </body>
+    </html>

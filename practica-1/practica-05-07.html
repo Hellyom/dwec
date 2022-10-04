@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script>
+
+            function validateName(){
+                const pattern = /\b([a-zA-Z][ºª\-a-zA-Z]{1,26}[a-zA-Z])\b/;
+                const formulario = document.forms[0];
+                const nombre = formulario.elements["nombre"].value;
+                let mensaje = formulario.elements["mensaje"];
+                
+                if (pattern.test(nombre)) {
+                    mensaje.value = "El nombre si es valido";
+                } else {
+                    mensaje.value = "El nombre no es valido";
+                }
+            }    
+
+        </script>
+    </head>
+    <body>
+        <!-- Formulario con diferentes inputs con sus respectivos nombres y tipos. -->
+        <form>
+            <input name="nombre" type="text"><label> Nombre</label></input>
+            <br>
+            <input name="mensaje" type="text" readonly><label> Mensaje</label></input>
+            <br>
+            <button type="button" onclick="validateName()">Calcular</button>
+        </form>
+    </body>
+    </html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script>
+
+            function primeNumbers(){
+                /* Coger formulariom y valores de los elementos del formulario */
+                const formulario = document.forms[0];
+                const resultado = formulario.elements["NumerosP"];
+                let array = [];
+
+                /* 2 nested for loops para compbrobar si son numeros primos */
+                for (let i = 0; i <= 100; ++i){
+
+                    for (let k = 1; k <= (i / 2); ++k){
+
+                        if (k == 1) {
+                            continue;
+                        }
+                        if (i % k == 0) {
+                            break;
+                        }
+                        if (k > (i/2) - 1) {
+                            array.push(i);  
+                        }
+                    }
+                }
+                
+                /* Meter los numeros primos en un string y mostrarlos por el textarea "solution" */
+
+                let trans = "";
+                for (let i = 0; i < array.length; ++i){
+                    trans += array[i];
+                    trans += "|";
+                }
+                resultado.value = trans;
+            }    
+
+        </script>
+    </head>
+    <body onload="primeNumbers()">
+        <!-- Formulario con diferentes inputs con sus respectivos nombres y tipos. -->
+        <form>
+            <input name="NumerosP" type="text"><label> Numeros Primos</label></input>
+            <br>
+           
+        </form>
+    </body>
+    </html>
